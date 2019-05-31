@@ -1,8 +1,7 @@
 import * as inquirer from 'inquirer';
 import * as _ from 'lodash';
-import {ChoiceType} from "inquirer";
 import {Controller} from "../types/controller";
-import {Branches} from "./branches";
+import {Checkout} from "./";
 
 interface IMenuOption {
     name: string,
@@ -10,14 +9,14 @@ interface IMenuOption {
 }
 
 const MENU_OPTIONS: { [key: string]: IMenuOption } = {
-    branches: {
-        name: 'View branches',
-        value: async () => await new Branches().run()
+    checkout: {
+        name: 'Checkout',
+        value: async () => await new Checkout().run()
     }
 };
 
 class Menu extends Controller {
-    public getChoices(): ChoiceType[] {
+    public getChoices() {
         return _.map(MENU_OPTIONS, (option, key) => ({
             value: key,
             name: option.name

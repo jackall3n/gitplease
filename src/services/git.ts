@@ -1,7 +1,12 @@
-import * as sh from 'shelljs';
+import * as git from 'simple-git/promise';
 
 export class Git {
-    static branches() {
-        console.log(sh.exec('git branches'));
+    static async branches() {
+        const branches = await git().branch([]);
+        return branches.all;
+    }
+
+    static async checkout(branch: string) {
+        await git().checkout(branch);
     }
 }
