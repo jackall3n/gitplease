@@ -30,19 +30,19 @@ export class PullRequest extends Controller {
         const {current, choices} = await this.getChoices();
 
         const {target, source} = await inquirer.prompt([{
-            name: 'target',
-            type: 'list',
-            message: 'What is the target?',
-            choices,
-            pageSize: 100,
-            default: 'master'
-        }, {
             name: 'source',
             type: 'list',
-            message: 'What is the source?',
+            message: 'Pick a source',
             choices,
             pageSize: 100,
             default: current
+        }, {
+            name: 'target',
+            type: 'list',
+            message: 'Pick a target',
+            choices,
+            pageSize: 100,
+            default: 'master'
         }]);
 
         await this.createPullRequest(target, source);
