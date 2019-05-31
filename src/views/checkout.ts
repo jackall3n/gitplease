@@ -20,7 +20,8 @@ export class Checkout extends Controller {
             name: 'branch',
             type: 'list',
             message: 'What would you like to checkout?',
-            choices
+            choices,
+            pageSize: 100
         }]);
 
         await Git.checkout(branch);

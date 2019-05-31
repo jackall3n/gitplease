@@ -7,7 +7,9 @@
     "hosts": "./bin/index.js"
   },
   "scripts": {
-    "dev": "ts-node src/index"
+    "start" : "node dist/index",
+    "start:dev": "ts-node src/index",
+    "build": "tsc"
   },
   "dependencies": {
     "chalk": "^2.4.2",
