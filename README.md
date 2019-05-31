@@ -1,2 +1,2 @@
-# gitpls
+# gitplease
 Git please
