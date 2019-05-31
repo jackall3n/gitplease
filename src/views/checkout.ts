@@ -5,23 +5,29 @@ import * as inquirer from "inquirer";
 export class Checkout extends Controller {
 
     public async getChoices() {
-        const branches = await Git.branches();
+        const {current, all} = await Git.branches();
 
-        return branches.map((branch, index) => ({
+        const choices = all.map((branch, index) => ({
             value: branch,
             name: `${index + 1}. ${branch}`
         }));
+
+        return {
+            choices,
+            current
+        }
     }
 
     public async run() {
-        const choices = await this.getChoices();
+        const {choices} = await this.getChoices();
 
         const {branch} = await inquirer.prompt([{
             name: 'branch',
             type: 'list',
             message: 'What would you like to checkout?',
             choices,
-            pageSize: 100
+            pageSize: 100,
+            default: 'master'
         }]);
 
         await Git.checkout(branch);

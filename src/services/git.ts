@@ -2,8 +2,7 @@ import * as git from 'simple-git/promise';
 
 export class Git {
     static async branches() {
-        const branches = await git().branch([]);
-        return branches.all;
+        return await git().branch([]);
     }
 
     static async checkout(branch: string) {

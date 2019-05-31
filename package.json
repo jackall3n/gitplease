@@ -7,7 +7,7 @@
     "hosts": "./bin/index.js"
   },
   "scripts": {
-    "start" : "node dist/index",
+    "start": "node dist/index",
     "start:dev": "ts-node src/index",
     "build": "tsc"
   },
@@ -17,6 +17,7 @@
     "inquirer": "^6.3.1",
     "lodash": "^4.17.11",
     "minimist": "^1.2.0",
+    "open": "^6.3.0",
     "shelljs": "^0.8.3",
     "simple-git": "^1.113.0"
   },
