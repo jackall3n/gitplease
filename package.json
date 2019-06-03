@@ -6,6 +6,11 @@
   "bin": {
     "pls": "bin/index.js"
   },
+  "repository": {
+    "type": "GIT",
+    "url": "https://github.com/jackall3n/gitplease.git"
+  },
+  "homepage": "https://github.com/jackall3n/gitplease",
   "scripts": {
     "start": "node bin/index",
     "start:dev": "ts-node src/index",
