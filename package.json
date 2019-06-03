@@ -10,7 +10,8 @@
     "start": "node bin/index",
     "start:dev": "ts-node src/index",
     "build": "yarn clean && tsc",
-    "clean": "rimraf bin"
+    "clean": "rimraf bin",
+    "release": "npm version patch && npm publish"
   },
   "dependencies": {
     "chalk": "^2.4.2",
