@@ -4,13 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "bin": {
-    "pls": "./dist/index.js"
+    "pls": "dist/index.js"
   },
   "scripts": {
-    "start": "node dist/index",
+    "start": "node bin/index",
     "start:dev": "ts-node src/index",
     "build": "yarn clean && tsc",
-    "clean" : "rimraf dist"
+    "clean" : "rimraf bin"
   },
   "dependencies": {
     "chalk": "^2.4.2",
