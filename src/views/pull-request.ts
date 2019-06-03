@@ -21,7 +21,9 @@ export class PullRequest extends Controller {
     }
 
     public async createPullRequest(target: string, source: string) {
-        const url = `http://whdev:8080/tfs/CreativeTechnologiesCollection/mochi/_git/front-end/pullrequestcreate?targetRef=${encodeURIComponent(target)}&sourceRef=${encodeURIComponent(source)}`;
+        const {refs} = await Git.remote();
+
+        const url = `${refs.push}/pullrequestcreate?targetRef=${encodeURIComponent(target)}&sourceRef=${encodeURIComponent(source)}`;
 
         await open(url);
     }
