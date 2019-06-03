@@ -1,6 +1,6 @@
-import * as inquirer from "inquirer";
+import inquirer from "inquirer";
 import chalk from 'chalk';
-import * as _ from 'lodash';
+import _ from 'lodash';
 
 import {Git} from "../services/git";
 import {Controller} from "../types/controller";
@@ -36,7 +36,7 @@ export class Tag extends Controller {
         const tags = _(all)
             .filter(tag => !!tag.match(FEATURE_MATCH))
             .map(tag => {
-                const {environment, major, minor, build, revision} = tag.match(FEATURE_MATCH).groups;
+                const {environment, major, minor, build, revision} = tag.match(FEATURE_MATCH)!.groups as any;
 
                 return {
                     tag,

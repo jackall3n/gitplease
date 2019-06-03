@@ -1,6 +1,6 @@
-import * as minimist from 'minimist';
+import minimist from 'minimist';
 
-import {Menu, Checkout, PullRequest, Tag, Pull} from "./views";
+import {Checkout, Menu, Pull, PullRequest, Tag} from "./views";
 
 interface IArgs {
     checkout: boolean;
@@ -8,7 +8,9 @@ interface IArgs {
     tags: boolean;
 }
 
-const options = minimist<IArgs>(process.argv.slice(2), {
+const args = process.argv.slice(2);
+
+const minimistOptions: minimist.Opts = {
     boolean: ['checkout', 'pullRequest'],
     default: {
         checkout: false,
@@ -22,7 +24,9 @@ const options = minimist<IArgs>(process.argv.slice(2), {
         t: 'tag',
         p: 'pull'
     }
-});
+};
+
+const options = minimist<IArgs>(args, minimistOptions);
 
 class App {
     public async run() {

@@ -1,5 +1,5 @@
-import * as inquirer from "inquirer";
-import * as open from 'open';
+import inquirer from "inquirer";
+import open from 'open';
 
 import {Git} from "../services/git";
 import {Controller} from "../types/controller";

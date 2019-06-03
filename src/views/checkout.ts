@@ -1,6 +1,7 @@
+import inquirer from "inquirer";
+
 import {Git} from "../services/git";
 import {Controller} from "../types/controller";
-import * as inquirer from "inquirer";
 
 export class Checkout extends Controller {
 

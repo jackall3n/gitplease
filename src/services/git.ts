@@ -1,4 +1,4 @@
-import * as git from 'simple-git/promise';
+import git from 'simple-git/promise';
 
 export class Git {
     static async branches() {

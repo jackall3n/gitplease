@@ -1,7 +1,7 @@
-import * as inquirer from 'inquirer';
-import * as _ from 'lodash';
+import inquirer from 'inquirer';
+import _ from 'lodash';
 import {Controller} from "../types/controller";
-import {Checkout, PullRequest, Tag, Pull} from "./";
+import {Checkout, Pull, PullRequest, Tag} from "./";
 
 interface IMenuOption {
     name: string,
