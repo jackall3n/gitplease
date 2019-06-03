@@ -79,7 +79,7 @@ export class Tag extends Controller {
         log(chalk.green(`${current.tag} <- CURRENT`));
         log(chalk.blue(`${suggestedTag} <- SUGGESTED`));
 
-        const {create, push} = await inquirer.prompt([{
+        const {tagName, push} = await inquirer.prompt([{
             type: "input",
             message: "What tag do you want to create?",
             name: 'tagName',
@@ -97,13 +97,9 @@ export class Tag extends Controller {
             name: 'push'
         }]);
 
-        if (!create) {
-            return;
-        }
+        await Git.tag(tagName);
 
-        await Git.tag(suggestedTag);
-
-        log(chalk`Successfully tagged {green ${suggestedTag}}`);
+        log(chalk`Successfully tagged {green ${tagName}}`);
 
         if (!push) {
             return;
