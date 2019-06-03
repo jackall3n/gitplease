@@ -4,12 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "bin": {
-    "hosts": "./bin/index.js"
+    "pls": "./dist/index.js"
   },
   "scripts": {
     "start": "node dist/index",
     "start:dev": "ts-node src/index",
-    "build": "tsc"
+    "build": "yarn clean && tsc",
+    "clean" : "rimraf dist"
   },
   "dependencies": {
     "chalk": "^2.4.2",
@@ -27,6 +28,7 @@
     "@types/lodash": "^4.14.133",
     "@types/minimist": "^1.2.0",
     "@types/shelljs": "^0.8.5",
+    "rimraf": "^2.6.3",
     "ts-node": "^8.2.0",
     "typescript": "^3.4.5"
   }
