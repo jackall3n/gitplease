@@ -1,16 +1,16 @@
 {
-  "name": "gitplease",
+  "name": "@jackall3n/gitplease",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "bin": {
-    "pls": "dist/index.js"
+    "pls": "bin/index.js"
   },
   "scripts": {
     "start": "node bin/index",
     "start:dev": "ts-node src/index",
     "build": "yarn clean && tsc",
-    "clean" : "rimraf bin"
+    "clean": "rimraf bin"
   },
   "dependencies": {
     "chalk": "^2.4.2",
