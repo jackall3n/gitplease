@@ -1,7 +1,6 @@
 import * as minimist from 'minimist';
 
-import {Menu, Checkout, PullRequest} from "./views";
-import {Tags} from "./views/tags";
+import {Menu, Checkout, PullRequest, Tag, Pull} from "./views";
 
 interface IArgs {
     checkout: boolean;
@@ -14,12 +13,14 @@ const options = minimist<IArgs>(process.argv.slice(2), {
     default: {
         checkout: false,
         pullRequest: false,
-        tags: false
+        tag: false,
+        pull: false
     },
     alias: {
         c: 'checkout',
         pr: 'pullRequest',
-        t: 'tags'
+        t: 'tag',
+        p: 'pull'
     }
 });
 
@@ -31,8 +32,10 @@ class App {
             controller = new Checkout();
         } else if (options.pullRequest) {
             controller = new PullRequest();
-        } else if (options.tags) {
-            controller = new Tags();
+        } else if (options.tag) {
+            controller = new Tag();
+        } else if (options.pull) {
+            controller = new Pull();
         } else {
             controller = new Menu();
         }
