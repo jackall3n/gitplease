@@ -5,6 +5,10 @@ export class Git {
         return await git().branch([]);
     }
 
+    static async checkoutBranch(branch: string) {
+        await git().checkoutLocalBranch(branch);
+    }
+
     static async checkout(branch: string) {
         await git().checkout(branch);
     }

@@ -1,6 +1,6 @@
 import minimist from 'minimist';
 
-import {Checkout, Menu, Pull, PullRequest, Tag} from "./views";
+import {Checkout, Menu, Pull, PullRequest, Tag, Branch} from "./views";
 
 interface IArgs {
     checkout: boolean;
@@ -40,6 +40,8 @@ class App {
             controller = new Tag();
         } else if (options.pull) {
             controller = new Pull();
+        } else if (options.branch) {
+            controller = new Branch();
         } else {
             controller = new Menu();
         }

@@ -1,7 +1,7 @@
 import inquirer from 'inquirer';
 import _ from 'lodash';
 import {Controller} from "../types/controller";
-import {Checkout, Pull, PullRequest, Tag} from "./";
+import {Branch, Checkout, Pull, PullRequest, Tag} from "./";
 
 interface IMenuOption {
     name: string,
@@ -24,6 +24,10 @@ const MENU_OPTIONS: { [key: string]: IMenuOption } = {
     pull: {
         name: 'Pull',
         value: async () => await new Pull().run()
+    },
+    branch: {
+        name: 'Branch',
+        value: async () => await new Branch().run()
     }
 };
 
